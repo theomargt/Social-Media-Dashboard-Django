@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>📊 Social Media Analytics</h2>
+
+    <div class="analytics-box p-4 border rounded shadow-sm bg-light">
+        <p><strong>👍 Total Twitter Likes:</strong> {{ twitter_likes }}</p>
+        <p><strong>❤️ Total Facebook Likes:</strong> {{ facebook_likes }}</p>
+    </div>
+
+    <!-- ✅ Back to Dashboard Button -->
+    <div class="mt-3 text-center">
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+</div>
+{% endblock %}
