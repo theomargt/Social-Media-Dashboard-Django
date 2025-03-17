@@ -14,6 +14,15 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
+#from dashboard.views import dashboard_view  # ✅ Import the dashboard view
+
+#urlpatterns = [
+    #path("admin/", admin.site.urls),  
+    #path("", dashboard_view, name="home"),  # ✅ Set dashboard as homepage
+    #path("dashboard/", include("dashboard.urls")),  # ✅ Include dashboard URLs
+#]
+
 from django.contrib import admin
 from django.urls import path, include
 from django.shortcuts import redirect  # ✅ Import redirect function
@@ -27,5 +36,3 @@ urlpatterns = [
     path('dashboard/', include('dashboard.urls')),  # ✅ Include dashboard app URLs
     path('', redirect_to_dashboard, name='home'),  # ✅ Redirect root URL to dashboard
 ]
-
-
