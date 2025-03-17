@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center">Social Media Dashboard</h2>
+    
+    <h3>Twitter Posts</h3>
+    <ul>
+        {% for post in twitter_data %}
+            <li>{{ post.text }}</li>
+        {% empty %}
+            <li>No Twitter posts available.</li>
+        {% endfor %}
+    </ul>
+    
+    <h3>Facebook Posts</h3>
+    <ul>
+        {% for post in facebook_data %}
+            <li>{{ post.message }}</li>
+        {% empty %}
+            <li>No Facebook posts available.</li>
+        {% endfor %}
+    </ul>
+
+    <!-- ✅ Add "Schedule a Post" Button -->
+    <div class="text-center mt-4">
+        <a href="{% url 'schedule_post' %}" class="btn btn-success">Schedule a Post</a>
+    </div>
+
+    <!-- ✅ Add "View Analytics" Button -->
+    <div class="text-center mt-4">
+        <a href="{% url 'analytics' %}" class="btn btn-primary">View Analytics</a>
+    </div>
+</div>
+{% endblock %}
