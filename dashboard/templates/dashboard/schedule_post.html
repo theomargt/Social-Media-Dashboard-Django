@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Post</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            padding: 20px;
+        }
+        form {
+            max-width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        textarea, input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            margin-top: 15px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 15px;
+            background-color: #6c757d;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .back-button:hover {
+            background-color: #545b62;
+        }
+    </style>
+</head>
+<body>
+    <h2>Schedule a Post</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="message">Message:</label>
+        <textarea name="message" required></textarea>
+        
+        <label for="scheduled_time">Schedule Time (YYYY-MM-DD HH:MM:SS):</label>
+        <input type="text" name="scheduled_time" placeholder="Optional">
+
+        <button type="submit">Schedule Post</button>
+    </form>
+
+    <!-- ✅ Back to Dashboard Button -->
+    <div>
+        <a href="{% url 'dashboard' %}" class="back-button">Back to Dashboard</a>
+    </div>
+</body>
+</html>
