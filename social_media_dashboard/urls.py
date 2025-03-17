@@ -23,8 +23,8 @@ def redirect_to_dashboard(request):
     return redirect('dashboard')  # Redirect "/" to "/dashboard/"
 
 urlpatterns = [
-    path('admin/', admin.site.urls),  # Django Admin Panel
-    path('dashboard/', include('dashboard.urls')),  # ✅ Include dashboard URLs
+    path('admin/', admin.site.urls),  # ✅ Django Admin Panel
+    path('dashboard/', include('dashboard.urls')),  # ✅ Include dashboard app URLs
     path('', redirect_to_dashboard, name='home'),  # ✅ Redirect root URL to dashboard
 ]
 
